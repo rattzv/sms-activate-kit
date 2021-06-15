@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SMSActivateKit</name>
+    </assembly>
+    <members>
+        <member name="T:SMSActivateKit.SMSActivateCore">
+            <summary>
+            Базовый класс библиотеки для обраения к методам и объектам.
+            </summary>
+        </member>
+        <member name="M:SMSActivateKit.SMSActivateCore.InitializeClient(System.String)">
+            <summary>
+            Метод инициализации киента, принимает в качестве параметра API-ключ.
+            </summary>
+            <param name="InputAPIKey">API-ключ предосталвяется смс-сервисом.</param>
+            <returns>Возвращает список доступнх методов для смс-сервиса.</returns>
+        </member>
+        <member name="M:SMSActivateKit.SMSActivateCore.GetBalance">
+            <summary>
+            Метод проверки доступного баланса.
+            </summary>
+            <returns>Возвращает доступный баланс, число типа double.</returns>
+        </member>
+        <member name="M:SMSActivateKit.SMSActivateCore.GetBalanceAndCashBack">
+            <summary>
+            Метод проверки суммарного баланса и кэшбэка.
+            </summary>
+            <returns>Возвращает доступный суммарный баланс, число типа double.</returns>
+        </member>
+        <member name="M:SMSActivateKit.SMSActivateCore.GetNumber(SMSActivateKit.Objects.Service,SMSActivateKit.Objects.Country)">
+            <summary>
+            Метод покупки номера определенного сервиса и страны.
+            </summary>
+            <param name="service">Содержит наименование сервиса из перечисления типа Service</param>
+            <param name="country">Содержит наименование страны из перечислеия типа Country</param>
+            <returns>Возвращает объект типа Number с идентификатором и номером</returns>
+        </member>
+        <member name="M:SMSActivateKit.SMSActivateCore.GetNumber(System.String,System.String)">
+            <summary>
+            Метод покупки номера определенного сервиса и страны.
+            </summary>
+            <param name="service">Содержит нааименование сервиса типа string</param>
+            <param name="country">Содержит наименование страны типа string</param>
+            <returns>Возвращает объект типа Number с идентификатором и номером</returns>
+        </member>
+        <member name="M:SMSActivateKit.SMSActivateCore.GetNumber(SMSActivateKit.Objects.Service,SMSActivateKit.Objects.Country,System.Boolean,System.Int32)">
+            <summary>
+            Метод покупки номера определенного сервиса и страны c возможностью ожидания смс.
+            </summary>
+            <param name="service">Содержит наименование сервиса из перечисления типа Service</param>
+            <param name="country">Содержит наименование страны из перечислеия типа Country</param>
+            <param name="wait">Логическая переменная, опредеяющая необходимо ли ожидать появление номеров (True/False).</param>
+            <param name="waitTime">Содержит максимальное время для ожидания номера (в минутах).</param>
+            <returns>Возвращает объект типа Number с идентификатором и номером</returns>
+        </member>
+        <member name="M:SMSActivateKit.SMSActivateCore.GetNumber(System.String,System.String,System.Boolean,System.Int32)">
+            <summary>
+            Метод покупки номера определенного сервиса и страны c возможностью ожидания смс.
+            </summary>
+            <param name="service">Содержит наименование сервиса типа string.</param>
+            <param name="country">Содержит наименование страны типа string.</param>
+            <param name="wait">Логическая переменная, опредеяющая необходимо ли ожидать смс(True/False).</param>
+            <param name="waitTime">Содержит максимальное время для ожидания смс (в минутах).</param>
+            <returns>Возвращает объект типа Number с идентификатором и номером</returns>
+        </member>
+        <member name="M:SMSActivateKit.SMSActivateCore.GetNumbersCount(SMSActivateKit.Objects.Service,SMSActivateKit.Objects.Country)">
+            <summary>
+            Получает количество достпуных номеров для определнного сервиса и страны.
+            </summary>
+            <param name="service">Содержит наименование сервиса из перечисления типа Service</param>
+            <param name="country">Содержит наименование страны из перечисления типа Country</param>
+            <returns>Возвращает количество доступных номеров по указаным фильтрам.</returns>
+        </member>
+        <member name="M:SMSActivateKit.SMSActivateCore.GetNumbersCount(System.String,System.String)">
+            <summary>
+            Получает количество достпуных номеров для определнного сервиса и страны.
+            </summary>
+            <param name="service">Содержит наименование сервиса типа string.</param>
+            <param name="country">Содержит наименование страны типа string.</param>
+            <returns>Возвращает количество доступных номеров по указаным фильтрам.</returns>
+        </member>
+        <member name="M:SMSActivateKit.SMSActivateCore.GetActivationStatus(System.String)">
+            <summary>
+            Получает текущий статус активации. 
+            </summary>
+            <param name="activationId">ID активации, поученный при заказе номера.</param>
+            <returns>Возвращает статус активации, либо код из смс, если оно пришло на сервис.</returns>
+        </member>
+        <member name="M:SMSActivateKit.SMSActivateCore.GetActivationStatus(System.String,System.Boolean,System.Int32)">
+            <summary>
+            Получает текущий статус активации с возможностью ожидания смс. 
+            </summary>
+            <param name="activationId">ID активации, поученный при покупке номера.</param>
+            <param name="wait">Логическая переменная, опредеяющая необходимо ли ожидать смс(True/False).</param>
+            <param name="waitTime">Содержит максимальное время для ожидания смс (в минутах).</param>
+            <returns>Возвращает статус активации, либо код из смс, если оно пришло на сервис.</returns>
+        </member>
+        <member name="M:SMSActivateKit.SMSActivateCore.SetActivationStatus(SMSActivateKit.Objects.ActivationStatus,System.String)">
+            <summary>
+            Изменяет статус активации на доступный из перечисления, при успешной смене статуса ответ не возращается.
+            </summary>
+            <param name="activationStatus">Статус из перечисления типа ActivationStatus.</param>
+            <param name="activationId">ID активации, полученный при заказе номера.</param>
+        </member>
+        <member name="M:SMSActivateKit.SMSActivateCore.GetQiwiRequisites">
+            <summary>
+            Получает актуальные реквизиты QIWI-кошелька.
+            </summary>
+            <returns>Возвращает объект типа QiwiRequisites.</returns>
+        </member>
+    </members>
+</doc>
